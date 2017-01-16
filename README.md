@@ -24,7 +24,7 @@ The following **additional** features are implemented:
 - [ ] List anything else that you can get done to improve the app functionality!
 - [X] Euro/USD currency conversion from main view
 - [X] Two-way tip/bill
-- [X] *Customizable* tip/bill split always available from main view 
+- [X] **Customizable** tip/bill split always available from main view 
 
 ## Video Walkthrough 
 
