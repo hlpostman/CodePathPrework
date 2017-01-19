@@ -62,6 +62,17 @@ class ViewController: UIViewController {
         return tf
     }()
     
+    // "Service was..." header for above segmented controller
+    let segmentedControllerHeaderLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Service was..."
+        label.font = UIFont(name: "Arial", size: 20)
+        label.textColor = UIColor.gray
+        label.backgroundColor = UIColor.clear
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     // Segmented control to select tip percentage by satisfaction
     lazy var tipPercentageSegmentedControl: UISegmentedControl  = {
         let sc = UISegmentedControl()
@@ -337,10 +348,18 @@ class ViewController: UIViewController {
     }
     
     func setupTipPercentageSegmentedControl() {
+        
+        // Place "Service was..." header above segmented controller
+        view.addSubview(segmentedControllerHeaderLabel)
+        segmentedControllerHeaderLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25).isActive = true
+        segmentedControllerHeaderLabel.topAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        segmentedControllerHeaderLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        segmentedControllerHeaderLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
         // Place in the view, and add the x, y, width, and height constraints
         view.addSubview(tipPercentageSegmentedControl)
+        tipPercentageSegmentedControl.topAnchor.constraint(equalTo: segmentedControllerHeaderLabel.bottomAnchor, constant: 10).isActive = true
         tipPercentageSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        tipPercentageSegmentedControl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         tipPercentageSegmentedControl.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40).isActive = true
         tipPercentageSegmentedControl.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
